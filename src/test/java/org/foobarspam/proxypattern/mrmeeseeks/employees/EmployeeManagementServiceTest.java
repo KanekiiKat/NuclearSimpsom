@@ -1,0 +1,41 @@
+package org.foobarspam.proxypattern.mrmeeseeks.employees;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+
+public class EmployeeManagementServiceTest {
+
+    EmployeeManagementService employeeService = new EmployeeManagementServiceImpl();
+
+
+
+    @Before
+    public void EmployeeManagementServiceTest(){
+        employeeService.employeeClear();
+        assertEquals(0, employeeService.crewSize());
+    }
+
+    @Test
+    public void EmployeeTest(){
+
+        Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+        Employee lenny = employeeService.createEmployee("Lenny Leonard", 2, Department.SECURITY,  ExperienceLevel.INTERMEDIO, Shift.AFTERNOON);
+
+        assertEquals("Homer Simpson", homer.getName());
+        assertEquals("Seguridad", lenny.getdepartment().getName());
+    }
+    
+    @Test
+    public void crewSizeTest(){
+
+        Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+        Employee carl = employeeService.createEmployee("Carl Carlson", 3, Department.MAINTENANCE, ExperienceLevel.INTERMEDIO, Shift.NIGHT);
+        Employee smithers = employeeService.createEmployee("Smithers", 4, Department.ADMINISTRATION, ExperienceLevel.EXPERTO, Shift.MORNING);
+
+        assertEquals(3, employeeService.crewSize());
+        employeeService.employeeClear();
+        assertEquals(0, employeeService.crewSize());
+    }
+
+}
