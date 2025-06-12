@@ -2,9 +2,9 @@ package org.foobarspam.proxypattern.mrmeeseeks.employees;
 
 public enum Shift {
 
-    MAÑANA("Mañana"),
-    TARDE("Tarde"),
-    NOCHE("Noche");
+    MORNING("Mañana"),
+    AFTERNOON("Tarde"),
+    NIGHT("Noche");
 
     private final String name;
 

@@ -4,15 +4,15 @@ public class Employee {
     
     private String name = "";
     private final  int ID;
-    private Departament departament;
+    private Department department;
     private Shift shift;
     private ExperienceLevel experienceLevel;
 
 
-    public Employee(String name, int ID){
+    public Employee(String name, int ID, Department department, Shift shift, ExperienceLevel experienceLevel){
         this.name = name;
         this.ID = ID;
-
+        this.department = department;
         this.shift = shift;
         this.experienceLevel = experienceLevel;
     }
@@ -25,8 +25,8 @@ public class Employee {
         return this.ID;
     }
 
-    public Departament getDepartament() {
-        return this.departament;
+    public Department getdepartment() {
+        return this.department;
     }
 
     public Shift getShift() {
