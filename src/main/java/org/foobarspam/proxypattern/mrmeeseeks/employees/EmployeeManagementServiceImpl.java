@@ -37,4 +37,11 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     public void display(Employee employee){
         System.out.println("Empleado " + employee.getName() + "asignado al departamento " + employee.getdepartment().getName());
     }
+
+    @Override
+    public void listCrew(){
+        for (Employee employee : employeesList){
+            System.out.println(employee.toString());
+        }
+    }
 }

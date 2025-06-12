@@ -38,5 +38,10 @@ public class App {
         System.err.println("""
                 Empleados dados de alta: %d
                 """.formatted(employeeService.crewSize()));
+
+        /*
+         * Muestra el listado de empleadas con su info
+         */
+        employeeService.listCrew();
     }
 }
