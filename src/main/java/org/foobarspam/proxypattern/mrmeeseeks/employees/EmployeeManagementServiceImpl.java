@@ -22,6 +22,11 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         this.employeesList.add(employee);
     }
 
+    @Override
+    public void employeeClear(){
+        this.employeesList.clear();
+    }
+
 
     @Override
     public int crewSize(){

@@ -6,4 +6,5 @@ public interface EmployeeManagementService {
     int crewSize();
     void addEmployee(Employee employee);
     void display(Employee employee);
+    void employeeClear();
 }
