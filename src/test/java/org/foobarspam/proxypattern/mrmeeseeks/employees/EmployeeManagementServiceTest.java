@@ -3,6 +3,8 @@ package org.foobarspam.proxypattern.mrmeeseeks.employees;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -81,5 +83,17 @@ public class EmployeeManagementServiceTest {
         assertEquals(Long.valueOf(1), employeeService.getExperienceLevelStatistics().get("Experto"));
     }
 
+    @Test
+    public void isDepartmentFullyCoveredTest(){
+        Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+        Employee mario = employeeService.createEmployee("Mario Simpson", 2, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.AFTERNOON);
+
+        assertFalse(employeeService.isDepartmentFullyCovered(Department.REACTOR_CONTROL));
+
+        Employee laura = employeeService.createEmployee("laura Simpson", 3, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.NIGHT);
+
+        assertTrue(employeeService.isDepartmentFullyCovered(Department.REACTOR_CONTROL));
+
+    }
 
 }
