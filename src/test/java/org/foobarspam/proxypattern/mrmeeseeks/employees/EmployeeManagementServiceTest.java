@@ -55,14 +55,31 @@ public class EmployeeManagementServiceTest {
 
     @Test
     public void changeEmployeeExperienceLevelTest(){
-    Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+        Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
 
-    assertEquals(ExperienceLevel.NOVATO, homer.getExperienceLevel());
+        assertEquals(ExperienceLevel.NOVATO, homer.getExperienceLevel());
 
-    employeeService.changeEmployeeExperienceLevel(homer, ExperienceLevel.INTERMEDIO);
+        employeeService.changeEmployeeExperienceLevel(homer, ExperienceLevel.INTERMEDIO);
 
-    assertEquals(ExperienceLevel.INTERMEDIO, homer.getExperienceLevel());
+        assertEquals(ExperienceLevel.INTERMEDIO, homer.getExperienceLevel());
 
     }
+
+    @Test
+    public void getExperienceLevelStatisticsTest(){
+        Employee carl = employeeService.createEmployee("Carl Carlson", 3, Department.MAINTENANCE, ExperienceLevel.INTERMEDIO, Shift.NIGHT);
+        
+        
+        assertEquals(Long.valueOf(0), employeeService.getExperienceLevelStatistics().get("Novato"));
+        assertEquals(Long.valueOf(1), employeeService.getExperienceLevelStatistics().get("Intermedio"));
+        assertEquals(Long.valueOf(0), employeeService.getExperienceLevelStatistics().get("Experto"));
+
+        employeeService.changeEmployeeExperienceLevel(carl, ExperienceLevel.EXPERTO);
+        
+        assertEquals(Long.valueOf(0), employeeService.getExperienceLevelStatistics().get("Novato"));
+        assertEquals(Long.valueOf(0), employeeService.getExperienceLevelStatistics().get("Intermedio"));
+        assertEquals(Long.valueOf(1), employeeService.getExperienceLevelStatistics().get("Experto"));
+    }
+
 
 }
