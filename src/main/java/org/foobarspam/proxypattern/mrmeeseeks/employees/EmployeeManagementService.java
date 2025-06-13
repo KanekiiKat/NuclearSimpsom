@@ -1,4 +1,5 @@
 package org.foobarspam.proxypattern.mrmeeseeks.employees;
+import java.util.List;
 
 public interface EmployeeManagementService {
 
@@ -8,4 +9,5 @@ public interface EmployeeManagementService {
     void display(Employee employee);
     void employeeClear();
     void listCrew();
+    List<Employee> findEmployeesByDepartment(Department department);
 }

@@ -44,4 +44,15 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
             System.out.println(employee.toString());
         }
     }
+    
+    @Override
+    public List<Employee> findEmployeesByDepartment(Department department){
+        List<Employee> employeesDepartament = new ArrayList<>();
+        for (Employee employee : employeesList){
+            if (employee.getdepartment().equals(department)){
+                employeesDepartament.add(employee);
+            }
+        }
+        return employeesDepartament;
+    }
 }

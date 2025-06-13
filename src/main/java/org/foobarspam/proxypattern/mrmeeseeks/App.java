@@ -1,6 +1,8 @@
 package org.foobarspam.proxypattern.mrmeeseeks;
 
 
+import java.util.List;
+
 import org.foobarspam.proxypattern.mrmeeseeks.employees.*;
 
 public class App {
@@ -43,5 +45,16 @@ public class App {
          * Muestra el listado de empleadas con su info
          */
         employeeService.listCrew();
+
+        /* 
+         * Historia de Usuario 3: Buscar empleadas por departamento
+         */
+        System.out.println("\n3. Buscando empleados por departamento...\n");
+        List<Employee> reactorEmployees = employeeService.findEmployeesByDepartment(Department.REACTOR_CONTROL);
+        System.out.println("Empleados en Control de Reactor:");
+        reactorEmployees.forEach(employee -> 
+            System.out.println("- " + employee.toString()));
+
+            
     }
 }
