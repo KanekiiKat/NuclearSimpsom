@@ -2,6 +2,7 @@ package org.foobarspam.proxypattern.mrmeeseeks;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.foobarspam.proxypattern.mrmeeseeks.employees.Department;
 import org.foobarspam.proxypattern.mrmeeseeks.employees.Employee;
@@ -69,6 +70,17 @@ public class App {
         employeeService.changeEmployeeExperienceLevel(carl, ExperienceLevel.EXPERTO);
         System.out.println("Empleado " + carl.getName() + " cambió su nivel de experiencia a " + carl.getExperienceLevel().name());
         System.out.println("Empleado " + carl.toString());
+        
+        /*
+         * Historia de Usuario 5: Estadísticas por nivel de experiencia
+         * getExperienceLevelStatistics() devuelve un mapa 
+         * con el nivel de experiencia y el número de empleados en ese nivel
+         */
+
+        System.out.println("\n4. Estadísticas por nivel de experiencia:\n");
+        Map<String, Long> experienceStats = employeeService.getExperienceLevelStatistics();
+        experienceStats.forEach((level, count) -> 
+            System.out.println(level + ": " + count + " empleados"));
 
 
     }

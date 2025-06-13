@@ -1,5 +1,6 @@
 package org.foobarspam.proxypattern.mrmeeseeks.employees;
 import java.util.List;
+import java.util.Map;
 
 public interface EmployeeManagementService {
 
@@ -11,4 +12,5 @@ public interface EmployeeManagementService {
     void listCrew();
     List<Employee> findEmployeesByDepartment(Department department);
     void changeEmployeeExperienceLevel(Employee employee, ExperienceLevel newExperienceLevel);
+    Map<String, Long> getExperienceLevelStatistics();
 }

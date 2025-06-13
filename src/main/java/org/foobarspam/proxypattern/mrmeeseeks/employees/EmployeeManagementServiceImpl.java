@@ -1,7 +1,9 @@
 package org.foobarspam.proxypattern.mrmeeseeks.employees;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeeManagementServiceImpl implements EmployeeManagementService {
 
@@ -60,5 +62,38 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     public void changeEmployeeExperienceLevel(Employee employee, ExperienceLevel experience){
         employee.setExperienceLevel(experience);
     }
+
+    @Override
+    public Map<String, Long> getExperienceLevelStatistics(){
+
+        Map<String, Long> experienceLevelsMap = new HashMap<>();
+        
+        int countNovatos = 0;
+        int countIntermedios = 0;
+        int countExpertos = 0;
+
+        
+        for (Employee employee : employeesList){
+                if (employee.getExperienceLevel().equals(ExperienceLevel.NOVATO)){
+                    countNovatos++;
+                }
+                if (employee.getExperienceLevel().equals(ExperienceLevel.INTERMEDIO)){
+                    countIntermedios++;
+                }
+                if (employee.getExperienceLevel().equals(ExperienceLevel.EXPERTO)){
+                    countExpertos++;
+                }
+        }
+
+        experienceLevelsMap.put(ExperienceLevel.NOVATO.getName(), Long.valueOf(countNovatos));
+        experienceLevelsMap.put(ExperienceLevel.INTERMEDIO.getName(), Long.valueOf(countIntermedios));
+        experienceLevelsMap.put(ExperienceLevel.EXPERTO.getName(), Long.valueOf(countExpertos));
+
+        return experienceLevelsMap;
+
+    }
+
+    
+    
 
 }
