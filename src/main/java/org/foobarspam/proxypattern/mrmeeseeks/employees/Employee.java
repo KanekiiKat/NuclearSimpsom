@@ -43,7 +43,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return this.name + "\s(ID:\s" + this.ID + "\sNivel:\s" + getExperienceLevel().getName() + "\sTurno:\s"
+        return getName() + "\s(ID:\s" + getID() + "\sNivel:\s" + getExperienceLevel().getName() + "\sTurno:\s"
                 + getShift().getName() + "\s)";
     }
 }
