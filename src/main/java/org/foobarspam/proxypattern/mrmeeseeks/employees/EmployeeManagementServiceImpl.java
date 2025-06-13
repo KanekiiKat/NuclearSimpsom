@@ -14,8 +14,14 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     @Override
     public Employee createEmployee(String name, int ID, Department departament, ExperienceLevel experience, Shift shift){
         Employee employee = new Employee(name, ID, departament, shift, experience);
+        for (Employee employeeInList : employeesList){
+            if (employeeInList.getID() == ID){
+                throw new IllegalArgumentException("El ID " + ID + " ya está en uso");
+            } 
+        }
         this.addEmployee(employee);
         this.display(employee);
+
         return employee;
     }
 
