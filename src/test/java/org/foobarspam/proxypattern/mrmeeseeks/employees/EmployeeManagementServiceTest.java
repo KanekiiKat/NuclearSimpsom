@@ -96,4 +96,11 @@ public class EmployeeManagementServiceTest {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void errorID_Unico(){
+        Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+        Employee mario = employeeService.createEmployee("Mario Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+
+    }
+
 }
