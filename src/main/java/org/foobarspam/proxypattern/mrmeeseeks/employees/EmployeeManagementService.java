@@ -13,4 +13,5 @@ public interface EmployeeManagementService {
     List<Employee> findEmployeesByDepartment(Department department);
     void changeEmployeeExperienceLevel(Employee employee, ExperienceLevel newExperienceLevel);
     Map<String, Long> getExperienceLevelStatistics();
+    Boolean isDepartmentFullyCovered(Department department);
 }

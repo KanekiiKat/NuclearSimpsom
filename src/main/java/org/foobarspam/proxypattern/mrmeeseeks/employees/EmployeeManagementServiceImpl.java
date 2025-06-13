@@ -98,7 +98,30 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     }
 
+    @Override
+    public Boolean isDepartmentFullyCovered(Department department){
+    boolean bmoring = false;
+    boolean bafternoon = false;
+    boolean bnigth = false;
 
+        for (Employee employee : employeesList){
+            if (employee.getdepartment().equals(department)){
+                if (employee.getShift().equals(Shift.MORNING)){
+                    bmoring = true;
+                } else if (employee.getShift().equals(Shift.AFTERNOON)){
+                    bafternoon = true;
+                } else if (employee.getShift().equals(Shift.NIGHT)){
+                    bnigth = true;
+                }
+            }
+        }
+        
+        if (bmoring && bafternoon && bnigth){
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
 }

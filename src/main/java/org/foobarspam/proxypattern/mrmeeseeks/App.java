@@ -82,6 +82,18 @@ public class App {
         experienceStats.forEach((level, count) -> 
             System.out.println(level + ": " + count + " empleados"));
 
+        /* 
+         * Historia de Usuario 6: Verificar cobertura de turnos
+         * Verifica si cada departamento tiene los 4 turnos cubiertos
+        */
+
+        System.out.println("\n5. Verificando cobertura de turnos...\n");
+        for (Department department : Department.values()) {
+            boolean isFullyCovered = employeeService.isDepartmentFullyCovered(department);
+            System.out.println("Departamento " + department + ": " + 
+                (isFullyCovered ? "Cubierto en todos los turnos" : "No cubierto en todos los turnos"));
+        }
+
 
     }
 }
