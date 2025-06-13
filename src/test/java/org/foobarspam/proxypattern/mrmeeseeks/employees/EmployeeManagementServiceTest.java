@@ -51,7 +51,17 @@ public class EmployeeManagementServiceTest {
         for (Employee employee : employeeList){
             assertEquals(smithers.getName(), employee.getName());
         }
+    }
 
+    @Test
+    public void changeEmployeeExperienceLevelTest(){
+    Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, ExperienceLevel.NOVATO, Shift.MORNING);
+
+    assertEquals(ExperienceLevel.NOVATO, homer.getExperienceLevel());
+
+    employeeService.changeEmployeeExperienceLevel(homer, ExperienceLevel.INTERMEDIO);
+
+    assertEquals(ExperienceLevel.INTERMEDIO, homer.getExperienceLevel());
 
     }
 
