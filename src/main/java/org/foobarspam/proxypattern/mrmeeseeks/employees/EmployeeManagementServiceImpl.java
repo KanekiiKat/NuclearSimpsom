@@ -55,4 +55,10 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         }
         return employeesDepartament;
     }
+
+    @Override
+    public void changeEmployeeExperienceLevel(Employee employee, ExperienceLevel experience){
+        employee.setExperienceLevel(experience);
+    }
+
 }

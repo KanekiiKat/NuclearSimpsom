@@ -3,7 +3,12 @@ package org.foobarspam.proxypattern.mrmeeseeks;
 
 import java.util.List;
 
-import org.foobarspam.proxypattern.mrmeeseeks.employees.*;
+import org.foobarspam.proxypattern.mrmeeseeks.employees.Department;
+import org.foobarspam.proxypattern.mrmeeseeks.employees.Employee;
+import org.foobarspam.proxypattern.mrmeeseeks.employees.EmployeeManagementService;
+import org.foobarspam.proxypattern.mrmeeseeks.employees.EmployeeManagementServiceImpl;
+import org.foobarspam.proxypattern.mrmeeseeks.employees.ExperienceLevel;
+import org.foobarspam.proxypattern.mrmeeseeks.employees.Shift;
 
 public class App {
     public static void main(String[] args) {
@@ -54,7 +59,17 @@ public class App {
         System.out.println("Empleados en Control de Reactor:");
         reactorEmployees.forEach(employee -> 
             System.out.println("- " + employee.toString()));
+        
+       /*
+         * Historia de Usuario 4: cambio de experiencia
+         * Cambia el nivel de experiencia de un empleado
+         * Carl cambia de INTERMEDIO a EXPERTO
+         */
+        System.out.println("\n4. Cambio de experiencia...\n");
+        employeeService.changeEmployeeExperienceLevel(carl, ExperienceLevel.EXPERTO);
+        System.out.println("Empleado " + carl.getName() + " cambió su nivel de experiencia a " + carl.getExperienceLevel().name());
+        System.out.println("Empleado " + carl.toString());
 
-            
+
     }
 }

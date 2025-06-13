@@ -10,4 +10,5 @@ public interface EmployeeManagementService {
     void employeeClear();
     void listCrew();
     List<Employee> findEmployeesByDepartment(Department department);
+    void changeEmployeeExperienceLevel(Employee employee, ExperienceLevel newExperienceLevel);
 }
