@@ -60,7 +60,12 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     @Override
     public void changeEmployeeExperienceLevel(Employee employee, ExperienceLevel experience){
+        int numEmployee = employeesList.indexOf(employee);
+
         employee.setExperienceLevel(experience);
+
+        employeesList.set(numEmployee, employee);
+
     }
 
     @Override
@@ -93,7 +98,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     }
 
-    
+
     
 
 }
